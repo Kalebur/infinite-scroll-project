@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +7,103 @@
   list-style: none;
 }
 
+:root {
+  --loader-size: 12rem;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  position: relative;
   min-height: 100vh;
+  background-color: #222;
+  color: #f3f3f3;
+
+  font-family: "Orbitron", sans-serif;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h1 {
+  margin: 4rem auto 1rem auto;
+
+  font-size: 2.5rem;
+  letter-spacing: 0.5rem;
+}
+
+h2 {
+  margin: 0 auto 4rem auto;
+
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
+}
+
+.images {
+  width: 90%;
+  margin: 0 auto;
+
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.images img {
+  width: 100%;
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - (var(--loader-size) / 2));
+  left: calc(50% - (var(--loader-size) / 2));
+
+  border: 16px solid #9b7e70;
+  border-top: 16px solid #5b1e01;
+  border-radius: 50%;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .images {
+    grid-template-columns: repeat(2, 0.5fr);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  .images {
+    width: 80%;
+    grid-template-columns: repeat(3, 0.33fr);
+  }
 }
